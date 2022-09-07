@@ -173,6 +173,7 @@ func (m Manager) GetAllSupportedLinterConfigs() []*linter.Config {
 		whitespaceCfg       *config.WhitespaceSettings
 		wrapcheckCfg        *config.WrapcheckSettings
 		wslCfg              *config.WSLSettings
+		vulncheckCfg        *config.VulncheckSettings
 	)
 
 	if m.cfg != nil {
@@ -247,6 +248,7 @@ func (m Manager) GetAllSupportedLinterConfigs() []*linter.Config {
 		whitespaceCfg = &m.cfg.LintersSettings.Whitespace
 		wrapcheckCfg = &m.cfg.LintersSettings.Wrapcheck
 		wslCfg = &m.cfg.LintersSettings.WSL
+		vulncheckCfg = &m.cfg.LintersSettings.Vulncheck
 
 		if govetCfg != nil {
 			govetCfg.Go = m.cfg.Run.Go
@@ -846,6 +848,11 @@ func (m Manager) GetAllSupportedLinterConfigs() []*linter.Config {
 			WithSince("v1.26.0").
 			WithPresets(linter.PresetStyle).
 			WithURL("https://github.com/golangci/golangci-lint/blob/master/pkg/golinters/nolintlint/README.md"),
+
+		linter.NewConfig(golinters.NewVulncheck(vulncheckCfg)).
+			WithSince("v1.49.0").
+			WithPresets(linter.PresetModule).
+			WithURL("https://vuln.go.dev/"),
 	}
 
 	enabledByDefault := map[string]bool{
