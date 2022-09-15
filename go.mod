@@ -106,6 +106,7 @@ require (
 	github.com/yagipy/maintidx v1.0.0
 	github.com/yeya24/promlinter v0.2.0
 	gitlab.com/bosi/decorder v0.2.3
+	golang.org/x/net v0.0.0-20220722155237-a158d28d115b
 	golang.org/x/tools v0.1.13-0.20220803210227-8b9a1fbdf5c3
 	golang.org/x/vuln v0.0.0-20220902211423-27dd78d2ca39
 	gopkg.in/yaml.v3 v3.0.1
@@ -186,5 +187,3 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	mvdan.cc/lint v0.0.0-20170908181259-adc824a0674b // indirect
 )
-
-require golang.org/x/net v0.0.0-20220722155237-a158d28d115b
