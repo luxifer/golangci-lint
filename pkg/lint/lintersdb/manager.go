@@ -850,7 +850,7 @@ func (m Manager) GetAllSupportedLinterConfigs() []*linter.Config {
 			WithURL("https://github.com/golangci/golangci-lint/blob/master/pkg/golinters/nolintlint/README.md"),
 
 		linter.NewConfig(golinters.NewVulncheck(vulncheckCfg)).
-			WithSince("v1.49.0").
+			WithSince("v1.51.0").
 			WithPresets(linter.PresetModule).
 			WithURL("https://vuln.go.dev/"),
 	}
